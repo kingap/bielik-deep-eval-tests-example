@@ -1,0 +1,6 @@
+deepeval
+openai
+pytest
+python-dotenv
+pytest-html
+pytest-json-report
