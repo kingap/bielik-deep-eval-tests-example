@@ -1,0 +1,15 @@
+{"id":"pl_rules_01_capital","input":"Jaka jest stolica Polski? Odpowiedz jednym słowem.","must_contain_any":["Warszawa"],"must_not_contain_any":["Kraków","Gdańsk"]}
+{"id":"pl_rules_02_currency","input":"Jaka jest waluta w Polsce?","must_contain_any":["zł","PLN","złoty"],"must_not_contain_any":["euro","USD"]}
+{"id":"pl_rules_03_national_day","input":"Kiedy obchodzimy Święto Niepodległości w Polsce? Podaj samą datę.","must_contain_any":["11"],"must_not_contain_any":["3 maja","1 maja"]}
+{"id":"pl_rules_04_emergency_112","input":"Jaki numer alarmowy działa w Polsce (i w UE) dla wszystkich służb?","must_contain_any":["112"],"must_not_contain_any":["911"]}
+{"id":"pl_rules_05_emergency_999","input":"Jaki jest numer na pogotowie ratunkowe w Polsce?","must_contain_any":["999"],"must_not_contain_any":["998","997"]}
+{"id":"pl_rules_06_emergency_998","input":"Jaki jest numer na straż pożarną w Polsce?","must_contain_any":["998"],"must_not_contain_any":["999","997"]}
+{"id":"pl_rules_07_emergency_997","input":"Jaki był tradycyjny numer na policję w Polsce?","must_contain_any":["997"],"must_not_contain_any":["999","998"]}
+{"id":"pl_rules_08_time_zone","input":"Jaka strefa czasowa obowiązuje w Polsce zimą?","must_contain_any":["CET","UTC+1"],"must_not_contain_any":["UTC+2","EET"]}
+{"id":"pl_rules_09_may3","input":"Co upamiętnia święto 3 maja w Polsce?","must_contain_any":["Konstytuc","1791"],"must_not_contain_any":["Niepodległości 11 listopada"]}
+{"id":"pl_rules_10_christmas_eve","input":"Jak nazywa się w Polsce wieczór 24 grudnia?","must_contain_any":["Wigilia"],"must_not_contain_any":["Sylwester","Wielkanoc"]}
+{"id":"pl_rules_11_sylwester","input":"Jak nazywa się w Polsce ostatni dzień roku (31 grudnia)?","must_contain_any":["Sylwester"],"must_not_contain_any":["Wigilia","Andrzejki"]}
+{"id":"pl_rules_12_warsaw_river","input":"Jaka rzeka przepływa przez Warszawę?","must_contain_any":["Wisła"],"must_not_contain_any":["Odra","Warta"]}
+{"id":"pl_rules_13_license_plate","input":"Jaka litera/litery są na początku tablic rejestracyjnych z Warszawy?","must_contain_any":["W"],"must_not_contain_any":["KR","PO","GD"]}
+{"id":"pl_rules_14_polite_form","input":"Jak grzecznie zwrócić się do nieznajomej osoby w Polsce (forma ogólna)?","must_contain_any":["Pan","Pani"],"must_not_contain_any":["ty","stary"]}
+{"id":"pl_rules_15_university","input":"Podaj przykład polskiego uniwersytetu (1 nazwa).","must_contain_any":["Uniwersytet","Politechnika"],"must_not_contain_any":["Harvard","Oxford"]}
