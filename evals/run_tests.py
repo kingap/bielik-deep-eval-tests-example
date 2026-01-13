@@ -43,26 +43,22 @@ def main() -> int:
         formatter_class=argparse.RawTextHelpFormatter,
     )
 
-    # ✅ test sety jako argumenty pozycyjne (0..n)
     parser.add_argument(
         "sets",
         nargs="*",
         help="Test set names (folder names under evals/datasets). If omitted => all sets.",
     )
 
-    # ✅ typy testów jako flagi (jak nic nie podasz => wszystkie typy)
     parser.add_argument("--rules", action="store_true", help="Run rules tests")
     parser.add_argument("--golden", action="store_true", help="Run golden tests")
     parser.add_argument("--judge", action="store_true", help="Run judge tests")
 
-    # ✅ NOWE: szybki tryb (rules + golden)
     parser.add_argument(
         "--fast",
         action="store_true",
         help="Run only fast tests (rules + golden). Equivalent to --rules --golden.",
     )
 
-    # ✅ uruchom absolutnie wszystko co pytest znajdzie
     parser.add_argument(
         "--all-tests",
         action="store_true",
@@ -89,13 +85,15 @@ def main() -> int:
 
     ts = datetime.now().strftime("%Y-%m-%d_%H%M%S")
 
-    # ====== MODE 1: run EVERYTHING ======
+    # ====== MODE 1: run EVERYTHING (all pytest tests) ======
     if args.all_tests:
         label = f"alltests__{ts}"
         json_path = reports / f"pytest_report_{label}.json"
         html_path = reports / f"pytest_report_{label}.html"
         latest_json = reports / "latest_alltests.json"
         latest_html = reports / "latest_alltests.html"
+
+        marker_expr_all = "rules or golden or judge or not (rules or golden or judge)"
 
         cmd = [
             sys.executable,
@@ -104,6 +102,8 @@ def main() -> int:
             "-vv",
             "--capture=tee-sys",
             "-rA",
+            "-m",
+            marker_expr_all,
             args.tests_dir,
             "--json-report",
             f"--json-report-file={json_path}",
@@ -128,13 +128,9 @@ def main() -> int:
         return result.returncode
 
     # ====== MODE 2: run eval suites (rules/golden/judge) + datasets ======
+    selected_sets = args.sets[:]
 
-    # sety do uruchomienia (opcjonalnie)
-    selected_sets = args.sets[:]  # puste => wszystkie
-
-    # 1) wyznacz typy do uruchomienia
     if args.fast:
-        # --fast wymusza rules+golden niezależnie od innych flag
         selected_types = ["rules", "golden"]
     else:
         selected_types: list[str] = []
@@ -145,7 +141,6 @@ def main() -> int:
         if args.judge:
             selected_types.append("judge")
 
-        # jak nic nie podano => wszystko
         if not selected_types:
             selected_types = ["rules", "golden", "judge"]
 
@@ -158,7 +153,6 @@ def main() -> int:
     latest_json = reports / f"latest_{label}.json"
     latest_html = reports / f"latest_{label}.html"
 
-    # 2) pliki testowe wg typów
     test_files: list[str] = []
     for t in selected_types:
         tf = TYPE_TO_TESTFILE.get(t)
@@ -166,12 +160,13 @@ def main() -> int:
             raise SystemExit(f"Unknown test type: {t}")
         test_files.append(tf)
 
-    # 3) env do filtrowania setów po folderze (czytane przez *_all.py)
     env = os.environ.copy()
     if selected_sets:
         env["EVAL_SETS"] = ",".join(selected_sets)
     else:
         env.pop("EVAL_SETS", None)
+
+    marker_expr = " or ".join(selected_types)
 
     cmd = [
         sys.executable,
@@ -180,6 +175,8 @@ def main() -> int:
         "-vv",
         "--capture=tee-sys",
         "-rA",
+        "-m",
+        marker_expr,
         *test_files,
         "--json-report",
         f"--json-report-file={json_path}",
@@ -191,6 +188,7 @@ def main() -> int:
     if selected_sets:
         print("EVAL_SETS:", env["EVAL_SETS"])
     print("TYPES:", ",".join(selected_types))
+    print("PYTEST -m:", marker_expr)
 
     result = subprocess.run(cmd, env=env)
 
