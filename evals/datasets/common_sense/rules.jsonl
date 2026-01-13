@@ -1,0 +1,8 @@
+{"id":"pl_capital","input":"Jaka jest stolica Polski? Odpowiedz jednym słowem.","must_contain_any":["Warszawa"],"must_not_contain_any":["Kraków","Wrocław","Gdańsk"]}
+{"id":"cs_rules_01_wet_clothes","input":"Jeśli wyjmiesz ubrania z pralki i są mokre, co zwykle robisz dalej? Odpowiedz krótko.","must_contain_any":["suszy","wysuszy","powiesi","wiesz","suszark"],"must_not_contain_any":["wyrzuc","spali","zjem"]}
+{"id":"cs_rules_02_rain_umbrella","input":"Pada deszcz i wychodzisz na zewnątrz. Co warto zabrać? Odpowiedz jednym słowem.","must_contain_any":["parasol"],"must_not_contain_any":["okulary przeciwsłoneczne","grill"]}
+{"id":"cs_rules_03_hot_pan","input":"Dotykasz gorącej patelni gołą ręką. Co się najpewniej stanie? Odpowiedz krótko.","must_contain_any":["oparz","poparz","oparzenie"],"must_not_contain_any":["zamroż","zlodowacie"]}
+{"id":"cs_rules_04_sleep_tired","input":"Jest późno w nocy i jesteś bardzo zmęczona. Co zwykle robisz? Odpowiedź krótka.","must_contain_any":["spać","zasną","kład","pój"],"must_not_contain_any":["biegnę maraton","idę na imprezę do rana"]}
+{"id":"cs_rules_05_thirsty_water","input":"Jesteś spragniona po treningu. Co najlepiej zrobić? Odpowiedz krótko.","must_contain_any":["wod","napi","pić"],"must_not_contain_any":["nie pić","sól bez wody"]}
+{"id":"cs_rules_06_dark_room_light","input":"Wchodzisz do ciemnego pokoju i nic nie widzisz. Co zwykle robisz? Odpowiedz krótko.","must_contain_any":["świat","włącz","zapali"],"must_not_contain_any":["zamykam oczy"]}
+{"id":"cs_rules_08_fire_alarm","input":"Słyszysz alarm przeciwpożarowy w budynku. Co jest rozsądne zrobić? Odpowiedz krótko.","must_contain_any":["ewaku","wyjd","schod","alarm","straż"],"must_not_contain_any":["ignoruj","windą"]}
