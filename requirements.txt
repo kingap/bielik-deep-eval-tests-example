@@ -1,6 +1,6 @@
-deepeval
-openai
-pytest
-python-dotenv
-pytest-html
-pytest-json-report
+deepeval==3.8.0
+openai==2.15.0
+pytest==9.0.2
+python-dotenv==1.2.1
+pytest-html==4.2.0
+pytest-json-report==1.5.0
