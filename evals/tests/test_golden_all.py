@@ -1,41 +1,18 @@
 from __future__ import annotations
 
-from pathlib import Path
-import os
 import pytest
 
+from evals.datasets import iter_datasets
 from evals.datasets.loaders import load_jsonl
 from evals.local_bielik import call_bielik
 from evals.golden import token_f1
 from evals.recording import record_case_from_row
 
-DATASETS_DIR = Path(__file__).resolve().parents[1] / "datasets"
 DEFAULT_F1_THRESHOLD = 0.40
 
 
-def _allowed_sets() -> set[str] | None:
-    raw = os.getenv("EVAL_SETS", "").strip()
-    if not raw:
-        return None
-    return {s.strip() for s in raw.split(",") if s.strip()}
-
-
-def iter_golden_datasets():
-    allowed = _allowed_sets()
-    if not DATASETS_DIR.exists():
-        return
-    for test_set_dir in DATASETS_DIR.iterdir():
-        if not test_set_dir.is_dir():
-            continue
-        if allowed is not None and test_set_dir.name not in allowed:
-            continue
-        path = test_set_dir / "golden.jsonl"
-        if path.exists():
-            yield test_set_dir.name, path
-
-
 CASES: list[dict] = []
-for test_set, path in iter_golden_datasets():
+for test_set, path in iter_datasets("golden.jsonl"):
     for row in load_jsonl(path):
         CASES.append(
             {
