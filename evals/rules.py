@@ -3,7 +3,7 @@ from typing import Iterable
 
 REFUSAL_HINTS = [
     "nie mogę", "nie moge", "nie jestem w stanie", "nie posiadam", "nie mam dostępu",
-    "as an ai", "i can't", "i cannot", "sorry", "przepraszam", "nie wiem",
+    "as an ai", "i can't", "i cannot", "sorry", "nie wiem",
 ]
 
 def normalize(s: str) -> str:
@@ -17,6 +17,16 @@ def contains_any(haystack: str, needles: Iterable[str]) -> bool:
     h = normalize(haystack)
     for n in needles:
         if normalize(n) in h:
+            return True
+    return False
+
+
+def contains_word(haystack: str, words: Iterable[str]) -> bool:
+    """Check if any word appears as whole word (using word boundaries)."""
+    h = normalize(haystack)
+    for w in words:
+        pattern = r'\b' + re.escape(normalize(w)) + r'\b'
+        if re.search(pattern, h):
             return True
     return False
 
