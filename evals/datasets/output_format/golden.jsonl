@@ -1,0 +1,7 @@
+{"id":"of_numbered_list","input":"Wymień 3 pory roku w Polsce jako listę numerowaną (1. 2. 3.):","expected":"1. Wiosna\n2. Lato\n3. Jesień","f1_threshold":0.3}
+{"id":"of_bullet_list","input":"Wymień 3 kolory podstawowe jako listę punktowaną (użyj myślników):","expected":"- czerwony\n- niebieski\n- żółty","f1_threshold":0.3}
+{"id":"of_json","input":"Podaj stolicę i walutę Polski w formacie JSON z kluczami 'stolica' i 'waluta':","expected":"{\"stolica\": \"Warszawa\", \"waluta\": \"złoty\"}","f1_threshold":0.3}
+{"id":"of_quote_only","input":"Zacytuj pierwsze słowa hymnu Polski (sam cytat w cudzysłowie):","expected":"\"Jeszcze Polska nie zginęła\"","f1_threshold":0.3}
+{"id":"of_quote_author","input":"Zacytuj 'Być albo nie być' i podaj autora w formacie: \"cytat\" - Autor:","expected":"\"Być albo nie być\" - William Shakespeare","f1_threshold":0.25}
+{"id":"of_mc_questions","input":"Ułóż pytanie wielokrotnego wyboru o stolicy Niemiec (4 opcje A-D, bez podawania odpowiedzi):","expected":"Jaka jest stolica Niemiec?\nA) Monachium\nB) Berlin\nC) Hamburg\nD) Frankfurt","f1_threshold":0.15}
+{"id":"of_mc_with_key","input":"Ułóż pytanie wielokrotnego wyboru o liczbie kontynentów z kluczem odpowiedzi na końcu:","expected":"Ile jest kontynentów na Ziemi?\nA) 5\nB) 6\nC) 7\nD) 8\n\nOdpowiedź: C","f1_threshold":0.15}

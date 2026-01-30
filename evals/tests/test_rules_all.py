@@ -5,7 +5,7 @@ import pytest
 from evals.datasets import iter_datasets
 from evals.datasets.loaders import load_jsonl
 from evals.local_bielik import call_bielik
-from evals.rules import contains_any, contains_word, looks_like_refusal
+from evals.rules import contains_any, contains_word, looks_like_refusal, matches_regex, max_length
 from evals.recording import record_case_from_row
 
 
@@ -50,6 +50,8 @@ def test_rules_all(case: dict, request: pytest.FixtureRequest):
             "must_not_contain_any": row.get("must_not_contain_any", []),
             "must_contain_word": row.get("must_contain_word", []),
             "must_not_contain_word": row.get("must_not_contain_word", []),
+            "must_match_regex": row.get("must_match_regex"),
+            "max_length": row.get("max_length"),
         },
     )
 
@@ -73,3 +75,13 @@ def test_rules_all(case: dict, request: pytest.FixtureRequest):
     must_not_word = row.get("must_not_contain_word", [])
     if must_not_word:
         assert not contains_word(out, must_not_word), f"Output contains forbidden word from: {must_not_word}"
+
+    # Regex matching (strict format validation)
+    regex_pattern = row.get("must_match_regex")
+    if regex_pattern:
+        assert matches_regex(out, regex_pattern), f"Output does not match required format: {regex_pattern}"
+
+    # Max length validation
+    max_len = row.get("max_length")
+    if max_len:
+        assert max_length(out, max_len), f"Output exceeds max length of {max_len} chars"

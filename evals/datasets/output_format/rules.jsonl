@@ -1,0 +1,10 @@
+{"id":"of_letter_only","input":"Odpowiedz TYLKO jedną literą (A, B, C lub D), bez żadnych dodatkowych słów:\nKtóre miasto jest stolicą Francji?\nA) Londyn\nB) Paryż\nC) Berlin\nD) Madryt","must_match_regex":"[Bb]\\.?","max_length":2}
+{"id":"of_number_only","input":"Podaj TYLKO liczbę, bez słów ani jednostek:\nIle planet jest w Układzie Słonecznym?","must_match_regex":"\\d+","max_length":3}
+{"id":"of_number_unit","input":"Podaj TYLKO liczbę z jednostką (np. '100°C'), bez dodatkowych słów:\nJaka jest temperatura wrzenia wody w stopniach Celsjusza?","must_match_regex":"\\d+\\s*°?C","max_length":6}
+{"id":"of_one_word","input":"Odpowiedz TYLKO jednym słowem:\nJaki kolor powstaje z połączenia niebieskiego i żółtego?","must_contain_word":["zielony"],"max_length":10}
+{"id":"of_yes_no","input":"Odpowiedz TYLKO 'tak' lub 'nie':\nCzy Słońce jest gwiazdą?","must_match_regex":"(tak|nie)\\.?","max_length":4}
+{"id":"of_uppercase","input":"Odpowiedz TYLKO WIELKIMI LITERAMI:\nJak nazywa się stolica Polski?","must_contain_word":["WARSZAWA"],"max_length":10}
+{"id":"of_lowercase","input":"Odpowiedz tylko małymi literami:\nJak nazywa się największy ocean?","must_contain_any":["spokojny","pacyfik"],"max_length":20}
+{"id":"of_first_name","input":"Podaj TYLKO imię (jedno słowo):\nJak miał na imię Kopernik?","must_contain_word":["Mikołaj"],"max_length":10}
+{"id":"of_full_name","input":"Podaj TYLKO imię i nazwisko:\nKto napisał 'Pana Tadeusza'?","must_contain_word":["Mickiewicz"],"must_contain_any":["Adam"],"max_length":20}
+{"id":"of_url","input":"Podaj TYLKO adres URL polskiej Wikipedii (sam link):","must_contain_any":["pl.wikipedia.org"],"max_length":30}

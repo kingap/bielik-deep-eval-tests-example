@@ -43,3 +43,13 @@ def looks_like_refusal(text: str) -> bool:
 def only_number(text: str) -> bool:
     t = text.strip()
     return bool(re.fullmatch(r"\d+", t))
+
+
+def matches_regex(text: str, pattern: str) -> bool:
+    """Check if output matches given regex pattern (fullmatch, case insensitive)."""
+    return bool(re.fullmatch(pattern, text.strip(), re.IGNORECASE))
+
+
+def max_length(text: str, limit: int) -> bool:
+    """Check if output has at most 'limit' characters."""
+    return len(text.strip()) <= limit
