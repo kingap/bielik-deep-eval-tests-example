@@ -1,4 +1,4 @@
-{"id":"pl_rules_01_capital","input":"Jaka jest stolica Polski? Odpowiedz jednym słowem.","must_contain_any":["Warszawa"],"must_not_contain_any":["Kraków","Gdańsk"]}
+{"id":"pl_rules_01_krakow","input":"Jakie miasto w Polsce było dawną stolicą i słynie z Wawelu? Odpowiedz jednym słowem.","must_contain_any":["Kraków"],"must_not_contain_any":["Warszawa","Gdańsk"]}
 {"id":"pl_rules_02_currency","input":"Jaka jest waluta w Polsce?","must_contain_any":["zł","PLN","złoty"],"must_not_contain_word":["USD"]}
 {"id":"pl_rules_03_national_day","input":"Kiedy obchodzimy Święto Niepodległości w Polsce? Podaj samą datę.","must_contain_any":["11"],"must_not_contain_any":["3 maja","1 maja"]}
 {"id":"pl_rules_04_emergency_112","input":"Jaki numer alarmowy działa w Polsce (i w UE) dla wszystkich służb?","must_contain_any":["112"],"must_not_contain_any":["911"]}
